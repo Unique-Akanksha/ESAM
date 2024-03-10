@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">All Attendance</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true"style="margin:0px auto;">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div id="container">
+    <!-- <ion-slides pager="true"  #slider>
+      <ion-slide> -->
+      <!-- <div class="card-container">
+        <ion-card *ngFor="let employee of employees"class="ion-card">
+          <ion-card-content>
+              <ion-img [src]="'https://demo101.websartech.com/AMS_APIS/backend/' + employee.userPhoto" ></ion-img> -->
+              <!-- <ion-img [src]="'assets/images/user.jpg'" class="custom-image w-100 position-relative border border-5 border-white shadow text-white"></ion-img> -->
+              <!-- <br>
+              
+                <ion-card-title>{{ employee.first_name }} {{ employee.last_name }}  </ion-card-title>
+                <ion-card-subtitle>{{ employee.department }}</ion-card-subtitle><br>
+                
+              <ion-button class="custom-outline-button" size="small" fill="clear" (click)="openModal('view', employee)">View Profile</ion-button>   
+          </ion-card-content>
+        </ion-card>
+      </div>
+      </ion-slide>
+      </ion-slides>
+  </div> -->
+
+  
+  <ion-card>
+    <ion-card-content>
+      <div class="example-header">
+        <ion-searchbar [debounce]="1000" (ionInput)="applyFilter($event)"style="--border-radius:20px;"></ion-searchbar>
+
+      </div>
+      
+      <div class="for_scroll">
+        <table mat-table [dataSource]="dataSource" class="my-table mat-elevation-z8" matSort>
+          <ng-container matColumnDef="employeeName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> <b>Name</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.employeeName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="employeeDept">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>Department</b></th>
+            <td mat-cell *matCellDef="let element"> {{element.employeeDept}} </td>
+          </ng-container>
+          <ng-container matColumnDef="currentTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>Current&nbsp;Time</b></th>
+            <td mat-cell *matCellDef="let element"> {{element.currentTime}} </td>
+          </ng-container>
+          <ng-container matColumnDef="currentDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>Date</b> </th>
+            <td mat-cell *matCellDef="let element"class="a"> {{element.currentDate}} </td>
+          </ng-container>
+          <ng-container matColumnDef="currentLocation">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>Current&nbsp;Location</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.currentLocation}} </td>
+          </ng-container>
+          <ng-container matColumnDef="projectList">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>Project</b> </th>
+            <td mat-cell *matCellDef="let element"class="a"> {{element.projectList}} </td>
+          </ng-container>
+          <ng-container matColumnDef="checkInTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>CheckIn&nbsp;Time</b> </th>
+            <td mat-cell *matCellDef="let element"class="a"> {{element.checkInTime}} </td>
+          </ng-container>
+          
+           <ng-container matColumnDef="checkOutTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>CheckOut&nbsp;Time</b> </th>
+            <td mat-cell *matCellDef="let element"class="a"> {{element.checkOutTime}} </td>
+          </ng-container>
+          <ng-container matColumnDef="totalHrsTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header><b>TotalHrs&nbsp;Time</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalHrsTime}} </td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef style="padding-left:60px"><b> Action</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+              <ion-button color="primary" (click)="openModal('update',element)">
+        
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+              <ion-button color="danger" (click)="deleteClick(element)">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching {{filterdata}}</td>
+          </tr>
+      
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </ion-card-content>
+  </ion-card>  
+
+  

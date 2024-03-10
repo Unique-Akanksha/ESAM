@@ -1,0 +1,185 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-menu-button menu="main-menu"></ion-menu-button>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-left">{{userRoleName}} Dashboard</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="getDeliveredNotifications()">
+          <ion-icon name="notifications"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+    <ion-grid>
+      <ion-row *ngIf="userRole === '1'">
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card  routerLink="/show-department"class="card1">
+            <ion-card-content>
+              <ion-icon class="icon1" name="person"></ion-icon>
+              <p>Department</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="/show-project"class="card2">
+            <ion-card-content>
+              <ion-icon name="checkmark-circle"class="icon1"></ion-icon>
+              <p>Project</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="/show-employee"class="card3">
+            <ion-card-content>
+              <ion-icon name="time"class="icon1"></ion-icon>
+              <p>Employee</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="/show-attendance"class="card4">
+            <ion-card-content>
+              <ion-icon name="calendar"class="icon1"></ion-icon>
+              <p>Attendance</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+            <ion-card routerLink="/admin-leave-history"class="card5">
+            <ion-card-content>
+              <ion-icon name="time"class="icon1"></ion-icon>
+              <p>Leave History</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="#"class="card6">
+            <ion-card-content>
+              <ion-icon class="icon1" name="person"></ion-icon>
+              <p>Coming soon</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="userRole === '5' || userRole === '4'|| userRole === '3'|| userRole === '2'">
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card  routerLink="/profile-emp"class="card1">
+            <ion-card-content>
+              <ion-icon class="icon1" name="person"></ion-icon>
+              <p>Profile</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="/fill-attendance"class="card2">
+            <ion-card-content>
+              <ion-icon name="checkmark-circle"class="icon1"></ion-icon>
+              <p>Fill Attendance</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="/show-emp-attendance"class="card3">
+            <ion-card-content>
+              <ion-icon name="time"class="icon1"></ion-icon>
+              <p>Attendance</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="/add-edit-leave"class="card4">
+            <ion-card-content>
+              <ion-icon name="briefcase"class="icon1"></ion-icon>
+              <p>Apply Leave</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card  routerLink="/show-leave"class="card5">
+            <ion-card-content>
+              <ion-icon name="time"class="icon1"></ion-icon>
+              <p>Leave History</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2">
+          <ion-card routerLink="#"class="card6">
+            <ion-card-content>
+              <ion-icon class="icon1" name="person"></ion-icon>
+              <p>Coming soon</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="userRole === '1'">
+        <ion-col size-md="6"size-lg="3"size-sm="6"size-xs="12">
+         <ion-card class="chartCard">
+           <ion-card-header>
+             <ion-label style="font-weight: bold; font-size: 19px; text-align: center;">
+               No.of Employees in department
+             </ion-label>
+           </ion-card-header>
+           <ion-card-content>
+             <div style="height: 300px; display: flex; align-items: center; justify-content: center;">
+               <canvas id="dep" width="300" height="300"></canvas>
+             </div>
+           </ion-card-content>
+         </ion-card>
+        </ion-col>
+        <ion-col size-md="6"size-lg="3"size-sm="6"size-xs="12">
+         <ion-card class="chartCard">
+           <ion-card-header>
+             <ion-label style="font-weight: bold; font-size: 19px; text-align: center;">
+               Male and Female Ratio
+             </ion-label>
+           </ion-card-header>
+           <ion-card-content style="height: 100%;">
+             <div style="position: relative; height: 300px;">
+               <canvas id="gender" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+             </div>
+           </ion-card-content>
+         </ion-card>
+        </ion-col>
+       
+        <ion-col size-md="6"size-lg="3"size-sm="6"size-xs="12">
+         <ion-card class="chartCard" >
+           <ion-card-header>
+             <ion-label style="font-weight: bold; font-size: 19px; text-align: center;">
+               Employee Attendance over a week
+             </ion-label>
+           </ion-card-header>
+           <ion-card-content style="height: 100%;">
+             <div style="position: relative; height: 300px;">
+               <canvas id="attendance" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+             </div>
+           </ion-card-content>
+         </ion-card>
+        </ion-col>
+  
+        <ion-col size-md="6"size-lg="3"size-sm="6"size-xs="12">
+          <ion-card class="chartCard" >
+            <ion-card-header>
+              <ion-label style="font-weight: bold; font-size: 19px; text-align: center;">
+                Leave Types
+              </ion-label>
+            </ion-card-header>
+            <ion-card-content style="height: 100%;">
+              <div style="position: relative; height: 300px;">
+                <canvas id="leave_type" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+              </div>
+            </ion-card-content>
+          </ion-card>
+          
+         </ion-col>
+       </ion-row>
+  
+      </ion-grid>
+
+</ion-content>
+
+

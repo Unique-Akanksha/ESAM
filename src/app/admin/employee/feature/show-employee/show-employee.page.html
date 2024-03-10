@@ -1,0 +1,109 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <!-- <ion-buttons slot="start">
+        <ion-button>
+          <ion-menu-button menu="main-menu"></ion-menu-button>
+        </ion-button>
+      </ion-buttons> -->
+
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/dashboard"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-list">All Employees</ion-title>
+
+      <!-- <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="notifications"></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+      <ion-buttons slot="end">
+        <ion-button (click)="openModal('add','')"size="large">
+          <!-- <ion-icon name="notifications"></ion-icon> -->
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-grid>
+      <!-- <ion-row>
+        <ion-col size="3" size-md="1" size-lg="1">
+          <ion-button  (click)="openModal('add','')"> <mat-icon>add</mat-icon> </ion-button>
+        </ion-col>
+      </ion-row> -->
+    </ion-grid>
+
+    <!-- <div class="container mt-3 p-3 bg-white">
+      <p class="fs-4 fw-bold">List Of Employees</p>
+    </div> -->
+    <div class="container mt-3 pt-3 px-3 d-flex flex-column bg-white">
+      <mat-form-field>
+        <mat-label>Filter Employee</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+      </mat-form-field>
+    </div>
+
+    <div class="container mt-3 p-3">
+      <div class="row">
+        <div class="col-md-6 mb-3"
+          *ngFor="let employee of employees$ | async | filter:searchKey:'name,stream,contact,email'">
+          <div class="card text-center" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <div class="d-flex flex-column justify-content-center position-relative w-100 h-100">
+                  <!-- <ion-img class="custom-image" [src]="tempImageUrl" *ngIf="tempImageUrl"style="height:100px;"></ion-img> -->
+             
+                  <!-- <img class="custom-image"
+                    [src]="'https://demo101.websartech.com/AMS_APIS/backend/' + employee.userPhoto"
+                    *ngIf="employee.userPhoto" alt="EmployeeImage"
+                    class="rounded-circle w-100 position-relative border border-5 border-white shadow text-white"
+                    style="z-index: 1;" onerror="this.src='assets/images/default-student-image.png';"> -->
+              
+                    <img class="custom-image"
+                    [src]="'http://localhost/ionic/Backend_Attendance_Management_System/backend/backend/' + employee.userPhoto"
+                    *ngIf="employee.userPhoto" alt="EmployeeImage"
+                    class="rounded-circle w-100 position-relative border border-5 border-white shadow text-white"
+                    style="z-index: 1;" onerror="this.src='assets/images/default-student-image.png';"> 
+                 
+                 
+                  <div class="position-absolute top-0 start-0 w-100" style="background-color: #3f51b5; height: 85%;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize fs-2">{{employee.first_name}} {{employee.last_name}}</h5>
+                  <p class="card-text"><small class="text-muted">{{employee.department}}</small></p>
+                  <p class="card-text">
+                    <i class="fa fa-envelope"></i> {{employee.email}}
+                  </p>
+                  <p class="card-text" [ngSwitch]="employee.role">
+                    <span *ngSwitchCase="1">Super Admin</span>
+                    <span *ngSwitchCase="2">Admin</span>
+                    <span *ngSwitchCase="3">Manager</span>
+                    <span *ngSwitchCase="4">Developer</span>
+                    <span *ngSwitchCase="5">Employee</span>
+                    <span *ngSwitchDefault>{{ employee.role }}</span>
+                  </p>
+                  <div class="d-flex justify-content-evenly">
+                    <button mat-fab class="bg-success" (click)="openModal('view',employee)">
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-fab color="primary" (click)="openModal('update',employee)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-fab color="warn" (click)="deleteClick(employee)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</ion-content>

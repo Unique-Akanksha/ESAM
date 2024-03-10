@@ -1,0 +1,118 @@
+
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="start">
+      <ion-button>
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-button>
+    </ion-buttons> -->
+
+    <ion-title class="ion-text-left">Fill Attenance</ion-title>
+
+    <!-- <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div id="container">
+      <form [formGroup]="attendanceForm"  (ngSubmit)="checkOut()">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="12" size-lg="12">
+            <h2 class="y_color text-center"> <b id="elementId2"> Welcome {{userName}} {{lastName}}</b></h2>
+            <!-- <ion-input label="Employee Name" labelPlacement="floating" fill="outline"  formControlName="name" readonly=""></ion-input><br> -->
+          
+            <h5 class=" text-center"> <b>{{department}}</b></h5>
+          </ion-col>
+          
+        </ion-row>
+    
+        <ion-row>
+          <ion-col size="12" size-md="12" size-lg="12">
+            <h1 class="text-center"><b>{{ currentTime | date: 'hh:mm a' }}</b></h1>
+            <h3 class="text-center"><b>{{ currentDate | date: 'EEEE, MMM d' }}</b></h3>
+          </ion-col>
+        </ion-row>
+    
+    
+        <ion-row>
+          <ion-col size="12" size-md="12" size-lg="12">
+            <div class="btn_center">
+    
+              <div class="icon-wrapper"> <ion-button color="light" *ngIf="showButton" (click)="checkIn()"><i
+                    class="fa fa-hand-pointer-o custom-icon">
+                    <h5 class="for_m_t10"> <b >Punch IN </b></h5><span class="fix-editor">&nbsp;</span>
+                  </i></ion-button>
+              </div>
+    
+              <div id="elementId" class="icon-wrapper"> <ion-button color="light" *ngIf="!showButton"
+                  (click)="checkOut()"><i class="fa fa-hand-pointer-o custom-icon">
+                    <h5> <b>Punch Out </b></h5><span class="fix-editor">&nbsp;</span>
+                  </i></ion-button>
+              </div>
+    
+              <div id="Thanks_img" class="Thanks_img">
+                <img (click)="checkOut()" src="../../../assets/images/Logout.png" alt="">
+              </div>
+    
+            </div>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col size="12" size-md="12" size-lg="12">
+            <h3 class="text-center text-secondary pt-2"> <ion-icon name="location"></ion-icon>
+              <div *ngIf="coordinatesMessage" class="message">
+                <br>
+                {{ coordinatesMessage }}
+              </div>
+            </h3>
+          </ion-col>
+        </ion-row>
+    
+        
+        <ion-row class="ion-justify-content-center">
+          <ion-select fill="outline"labelPlacement="stacked" label="Select Project" formControlName="project" placeholder="Select a project">
+              <ion-select-option *ngFor="let project of ProjectList">
+                {{ project.name }}
+              </ion-select-option>
+            </ion-select>
+        </ion-row>
+        
+        
+    
+        <ion-row>
+          <ion-col size="4" size-md="4" size-lg="4">
+            <h3 class="text-center text-secondary pt-2 "> <img src="../../../assets/icon/timer.png"alt=""></h3>
+            <h3 class="text-center"> <b>{{checkInTime}}</b></h3>
+            <h3 class="text-center">Cheak In </h3>
+          </ion-col>
+    
+          <ion-col size="4" size-md="4" size-lg="4">
+            <h3 class="text-center text-secondary pt-2"> <img src="../../../assets/icon/timer.png" alt=""></h3>
+            <h3 class="text-center "> <b>{{checkOutTime}}</b></h3>
+            <h3 class="text-center">Cheak Out</h3>
+          </ion-col>
+    
+          <ion-col size="4" size-md="4" size-lg="4">
+            <h3 class="text-center text-secondary pt-2"> <img src="../../../assets/icon/timer.png" alt=""></h3>
+            <h3 class="text-center "> <b>{{totalHrsTime}}</b></h3>
+            <h3 class="text-center">Total Hrs</h3>
+          </ion-col>
+    
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+
+

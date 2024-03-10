@@ -1,0 +1,107 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-back"(click)="closeModal(false)"size="large"></ion-icon>
+      </ion-buttons>
+      <ion-title>{{ actionType === 'update' ? 'Update Employee' : 'Add Employee' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <form [formGroup]="empForm" (ngSubmit)="closeModal(true)" enctype="multipart/form-data"class="ion-padding">
+      <ion-item>
+        <input type="file" fill="outline"accept="image/*" (change)="onImageSelected($event)" style="display: none" id="imageInput">
+        <!-- <input type="file" fill="outline"accept="image/*" (change)="onImageSelected($event)"  id="imageInput"> -->
+        <ion-button expand="full" fill="clear" (click)="openImageInput()" color="primary">
+          Choose Team Image
+        </ion-button>
+            <ion-img class="custom-image" [src]="tempImageUrl" *ngIf="tempImageUrl" style="height: 100px;"></ion-img>
+        <!--<ion-img class="custom-image" [src]="tempImageUrl" *ngIf="tempImageUrl"style="height:100px;"></ion-img> -->
+      </ion-item>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter First name" labelPlacement="floating" fill="outline" placeholder="Your First Name" appAlphabetOnly formControlName="first_name" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Middle name" labelPlacement="floating" fill="outline" placeholder="Your Middle Name" appAlphabetOnly formControlName="middle_name" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Last name" labelPlacement="floating" fill="outline" placeholder="Your Last Name" appAlphabetOnly formControlName="last_name" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Email" labelPlacement="floating" fill="outline" placeholder="Your Email"  formControlName="email" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Hire Date" labelPlacement="floating" fill="outline" type="date" placeholder="Hire Date" appAlphabetOnly formControlName="hire_date" (paste)="onPaste($event)"[min]="getMinimumStartDate()"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Date of Birth" labelPlacement="floating" fill="outline" type="date" placeholder="Date of Birth" appAlphabetOnly formControlName="dob" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select Department" formControlName="department" placeholder="Select Department">
+              <ion-select-option *ngFor="let department of departments" [value]="department.id">
+                {{ department.name }}
+              </ion-select-option>
+            </ion-select>
+            
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select Position" formControlName="position">
+              <ion-select-option value="Manager">Manager</ion-select-option>
+              <ion-select-option value="Engineer">Engineer</ion-select-option>
+              <ion-select-option value="Designer">Designer</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="6" size-xs="12" size-sm="6" size-md="6" size-lg="6" size-xl="6" class="gender-section">
+            <ion-list>
+              <ion-radio-group class="gender-radio-group" formControlName="gender">
+                <ion-list-header>
+                  Select Gender
+                </ion-list-header>
+                <div class="gender-options">
+                  <ion-item>
+                    <ion-label>Male</ion-label>
+                    <ion-radio value="male"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Female</ion-label>
+                    <ion-radio value="female"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Other</ion-label>
+                    <ion-radio value="other"></ion-radio>
+                  </ion-item>
+                </div>
+              </ion-radio-group>
+            </ion-list>
+            <div *ngIf="empForm.get('gender')?.invalid && empForm.get('gender')?.touched">
+              <ion-text color="danger">Gender is required.</ion-text>
+            </div>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select Role" formControlName="role" placeholder="Select a role">
+              <ion-select-option *ngFor="let role of userRoleList" [value]="role.role_id">
+                {{ role.name}}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Password" labelPlacement="floating" fill="outline" placeholder="Password" formControlName="password"  type="password" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Confirm Password" labelPlacement="floating" fill="outline" placeholder="Confirm Password" formControlName="confirmPassword"  type="password" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>        
+        </ion-row>
+        <ion-row>
+          <ion-button  shape="round"type="submit"[disabled]="empForm.invalid" class="login-button">{{ actionType === 'update' ? '+Update Employee' : '+Add Employee' }}</ion-button>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>
+
+
+
+
+  

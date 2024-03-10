@@ -1,0 +1,33 @@
+<div class="outer">
+  <div class="box">
+    <div class="row vh-100 g-0">
+      <!-- Left Side -->
+        <div class="col-lg-6 left position-relative d-none d-lg-block col-12">
+        <div class="bg-holder"></div>
+      </div>
+      <!-- Right Side -->
+      <div class="col-sm-6 mt-5 right">
+        <h1 align="center"style="color:#ff288d;font-weight:bold;">Welcome to Websar IT Solutions</h1>
+        <h3 align="center"style="font-weight:bold;">Please Login to Your Account!</h3>
+        <form class="m-5 ml-5"[formGroup]="loginForm" (ngSubmit)="Login()">
+          <label>Username</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="fa fa-envelope"></i>
+            </span>
+          <input class="form-control"type="email"placeholder="Username"formControlName="email">
+          </div>
+          <label>Password</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="fa fa-key"></i>
+            </span>
+          <input class="form-control "type="password"placeholder="Password"formControlName="password">
+          </div>
+          <br>
+          
+          <input type="submit" value="Login"[disabled]="loginForm.invalid"class="form-control"style="background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);color:white">
+        </form>
+      </div>
+
+  

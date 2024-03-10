@@ -1,0 +1,82 @@
+
+<ion-content class="ion-padding">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="medium" (click)="closeModal(false)">Cancel</ion-button>
+      </ion-buttons>
+      <ion-title>{{ actionType === 'view' ? 'View Employee' : 'Update Employee' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <form [formGroup]="empForm" (ngSubmit)="closeModal(true)" enctype="multipart/form-data">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <!-- <ion-img [src]="'assets/images/user.jpg'" class="custom-image w-100 position-relative border border-5 border-white shadow text-white"></ion-img> -->
+            <img class="custom-image"
+            [src]="'https://demo101.websartech.com/AMS_APIS/backend/' + tempImageUrl"
+            *ngIf="tempImageUrl" alt="EmployeeImage"
+            
+            style="z-index: 1;" onerror="this.src='assets/images/default-student-image.png';">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+           
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter First name" formControlName="first_name" readonly
+                placeholder="Your First Name"></ion-input>
+      
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter Middle name" formControlName="middle_name" readonly
+                placeholder="Your Middle Name"></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter Last name" formControlName="last_name" readonly
+                placeholder="Your Last Name"></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter Email" formControlName="email" placeholder="Your Email" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked"  labelPlacement="floating" fill="outline" label="Enter Hire Date" formControlName="hire_date" placeholder="Hire Date"
+                type="date" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Date of Birth" formControlName="dob" placeholder="Date of Birth"
+                type="date" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter gender" formControlName="gender" placeholder="Your gender" readonly></ion-input>
+          
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter Role" formControlName="role" placeholder="Your role" readonly></ion-input>
+          
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter department" formControlName="department" placeholder="Your department" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select Position" formControlName="position" placeholder="Your Position" readonly></ion-input>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+      
+    </form>
+  </ion-content>

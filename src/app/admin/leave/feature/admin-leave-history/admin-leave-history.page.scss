@@ -1,0 +1,91 @@
+.search_bar{
+  --border-radius:13px;
+  // --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // --background:white;
+}
+.search_bar:hover{
+  --box-shadow: rgba(15, 46, 133,0.35)0px 5px 15px;
+} 
+ion-button {
+  text-transform: none; 
+}
+.status_btn{
+  width:60%;
+  font-size:13px;
+}
+.status_btn{
+  --color:light;
+}
+table th{
+  text-align: justify;
+}
+table tr:hover{
+  background-color: #0f2e86;
+  color: white;
+}
+
+/*Media Query */
+@media (max-width: 576px) { 
+
+  .status_btn{
+    width:80%;
+    font-size:12px;
+  }
+    .btn_action {
+      font-size:17px; /* Adjust the font size */
+      padding: 2px 4px; /* Adjust the padding */
+    }
+//     }
+// *{
+//   font-size:10px;
+// }
+// table th{
+//   // font-size: 8px;
+// }
+// table tr td{
+//   width: 100%;
+// }
+  }
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {  }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (max-width: 1400px) {  }
+/*End Media Query*/
+
+  // .custom-ion-table {
+  //     width: 100%;
+  //     border-collapse: collapse;
+  //   }
+    
+  //   .custom-ion-table th,
+  //   .custom-ion-table td {
+  //     padding: 8px;
+  //     border: 1px solid #ccc;
+  //     text-align: left;
+  //   }
+    
+  //   .custom-ion-table th {
+  //     background-color: #f2f2f2;
+  //     font-weight: bold;
+  //   }
+    
+  //   /* Responsive styles for screens narrower than 768px */
+  //   @media screen and (max-width: 768px) {
+  //     .custom-ion-table {
+  //       font-size: 14px; /* Reduce font size */
+  //     }
+      
+  //     .custom-ion-table th,
+  //     .custom-ion-table td {
+  //       padding: 6px; /* Adjust padding for smaller screens */
+  //     }
+  //   }
+ 

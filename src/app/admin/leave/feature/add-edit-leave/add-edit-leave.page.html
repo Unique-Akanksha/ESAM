@@ -1,0 +1,57 @@
+<ion-content>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/dashboard"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Apply Leave</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <form [formGroup]="leaveRequestForm" (ngSubmit)="applyLeave()"class="ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+              <ion-input type="text"fill="outline"label="Employee Name"label-placement="floating"formControlName="employee_id"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select labelPlacement="stacked" label="Select Leave Category"fill="outline" placeholder="Select Leave Category"formControlName="leave_category">
+              <ion-select-option value="half day">Half Day</ion-select-option>
+              <ion-select-option value="full day">Full Day</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select labelPlacement="stacked" label="Select Leave Type"fill="outline" placeholder="Select Leave Type"formControlName="leave_type">
+              <ion-select-option value="Vacation">Vacation</ion-select-option>
+              <ion-select-option value="Sick Leave">Sick Leave</ion-select-option>
+              <ion-select-option value="Personal Leave">Personal Leave</ion-select-option>
+              <ion-select-option value="Unpaid Leave">Unpaid Leave</ion-select-option>
+            </ion-select>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <ion-input type="date"fill="outline"label="Select Start Date"label-placement="floating"formControlName="start_date"[min]="getMinimumEndDate()" [(ngModel)]="start_date"></ion-input>
+        </ion-col>
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <ion-input type="date"fill="outline"label="Select Leave End Date"label-placement="floating"formControlName="end_date"[min]="getMinimumEndDate()" [(ngModel)]="end_date"></ion-input>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+        <ion-textarea label="Reason" labelPlacement="floating" fill="outline" placeholder="Enter Leave Reason"formControlName="reason"></ion-textarea>
+      </ion-col>
+      <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+        <ion-input type="date"fill="outline"label="Leave Created Date" label-placement="floating"formControlName="created_at"readonly></ion-input>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit"class="login-button"[disabled]="leaveRequestForm.invalid">Apply</ion-button>
+    </ion-col>
+  </ion-row>
+        </ion-grid>
+        </form>
+  </ion-content>

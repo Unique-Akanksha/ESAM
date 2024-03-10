@@ -1,0 +1,105 @@
+.dark-theme {
+    // Dark theme specific styles for ion-content
+    ion-content {
+      --ion-background-color: var(--dark-primary-color);
+      --ion-color: var(--dark-secondary-color);
+      // ... other styles for dark mode ion-content
+    }
+  
+    // Other dark theme specific styles for different elements or components
+    // Example:
+    .dark-header {
+      background-color: var(--dark-primary-color);
+      color: var(--dark-secondary-color);
+      // ... other styles for dark mode header
+    }
+  
+    // ... other dark theme specific styles
+  }
+  
+#header{
+    height: 200px;
+    background-color: #0f2e86;
+    color:white;
+    padding-top: 30px;
+    padding-left: 15px;
+    display: flex;
+    position: relative;
+}
+
+img{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    border:7px solid #5e7ccc;
+    margin-right: 14px;
+}
+h2{
+    font-weight: 300px;
+    color: white;
+}
+h3{
+    color:white;
+    padding-top: 0px;
+}
+p{
+    font-size: 12px;
+    color:#e4e4e4;
+    font-weight: 0.4px;
+
+}
+#header-content{
+    padding-top: 30px;
+    border:none;
+    ion-icon{
+                margin-right: 10px;
+                color: #86979f;
+            }
+            ion-item{
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
+            ion-icon{
+                color:#0f2e86;
+                // margin-left:30px;
+            }
+}
+
+.custom-shape-divider-bottom-1701423068 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1701423068 svg {
+    position: relative;
+    display: block;
+    width: calc(105% + 1.3px);
+    height: 80px;
+}
+
+.custom-shape-divider-bottom-1701423068 .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+/*Style for Tab bar*/
+/* Media query for devices with smaller width, like Samsung Galaxy S20 */
+@media screen and (max-width: 420px) {
+    ion-tab-button {
+      font-size: 8px;
+    }
+    ion-label {
+      font-size: 10px;
+    }
+  }
+  .menu-item{
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  

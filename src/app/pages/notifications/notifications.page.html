@@ -1,0 +1,32 @@
+
+
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">Notifications</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+  
+    <ion-item *ngFor="let notification of notifications">
+      <ion-avatar slot="start">
+        <img src="../../../../../assets/images/vishal.jpg">
+      </ion-avatar>
+      <ion-buttons slot="end">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+       </ion-buttons>
+       <ion-label>
+        <h2>{{ notification.title }}</h2>
+        <p>Description for another notification...</p>
+        <p class="date">{{ notification.time }}</p>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content> 

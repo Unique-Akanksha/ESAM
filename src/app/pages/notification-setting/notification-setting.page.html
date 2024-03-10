@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">Notifications</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label>Show Notifications</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email Notifications</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>SMS Notifications</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Notification Sound</ion-label>
+      <ion-select slot="end" interface="popover">
+        <ion-select-option value="default">Default</ion-select-option>
+        <ion-select-option value="chime">Chime</ion-select-option>
+        <ion-select-option value="bell">Bell</ion-select-option>
+        <!-- Add more sound options -->
+      </ion-select>
+    </ion-item>
+
+   
+
+
+
+    <!-- Add more specific notification settings -->
+  </ion-list>
+</ion-content>

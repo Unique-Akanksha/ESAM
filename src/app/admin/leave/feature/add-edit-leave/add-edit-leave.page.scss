@@ -1,0 +1,82 @@
+// ion-col:hover{
+//   color:red;
+//   border-bottom: 2px solid red;
+// }
+// ion-col{
+//   // text-align: center;
+// }
+.login-button {
+  --border-radius: 10px;
+  --background:#f4d465;
+  --color: #010101;
+  width:100%;
+}
+.a{
+  text-align: center;
+}
+.table {
+  border: 1px solid #ccc;
+  margin:0px auto;
+  margin-top: 7%;
+  width:90%;
+  ion-row {
+    ion-col {
+      border: 1px solid #ccc;
+      text-align: left;
+      padding: 5px;
+      // font-weight: bold;
+
+    }
+  }
+  #th{
+    font-weight: bold;
+  }
+  .header {
+    background-color: #f2f2f2;
+    ion-col {
+      background-color: #e6e6e6;
+    }
+  }
+}
+.a:hover{
+  color:#0f2e86;
+  border-bottom: 3px solid #0f2e86;
+  border-width: 90%;
+}
+.custom-textarea {
+  height: 100px; /* Set the desired height */
+  /* Other styles if needed */
+}
+ion-list {
+  ion-item {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px;
+    ion-label {
+      h2 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      p {
+        font-size: 0.9em;
+        color: #666;
+        margin: 2px 0;
+      }
+    }
+    ion-icon.ellipsis-icon {
+      --color: #333;
+      font-size: 1.5em;
+    }
+  }
+}
+#h2{
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 420px) {
+#h2{
+  font-size:13px;
+}
+
+}

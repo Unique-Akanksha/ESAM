@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+      <!-- <ion-buttons slot="start">
+        <ion-button color="medium" (click)="closeModal(false)">Cancel</ion-button>
+      </ion-buttons> -->
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-back"(click)="closeModal(false)"size="large"></ion-icon>
+      </ion-buttons>
+      <ion-title>{{ actionType === 'update' ? 'Update Department' : 'Add Department' }}</ion-title>
+      <!-- <ion-buttons slot="end">
+        <ion-button  type="submit" class="login-button">+ Add Department</ion-button>
+      </ion-buttons> -->
+      <!-- <ion-buttons slot="end">
+        <ion-button (click)="closeModal(true)" [strong]="true" [disabled]="depForm.invalid">Confirm</ion-button>
+      </ion-buttons> -->
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+  <div class="container outer">
+    <div class="box"></div>
+  </div>
+
+  </ion-content>
+  

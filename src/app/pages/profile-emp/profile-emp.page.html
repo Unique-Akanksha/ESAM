@@ -1,0 +1,277 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar >
+      
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/dashboard"></ion-back-button>
+        </ion-buttons>
+  
+       <ion-buttons slot="end">
+        <ion-avatar>
+          <!-- <img [src]="'https://demo101.websartech.com/AMS_APIS/backend/' + userPhoto" alt="Image not found"id="image"> -->
+          <img [src]="'https://demo101.websartech.com/AMS_APIS/backend/' + userPhoto" alt="Image not found"class="ion-padding"> 
+        </ion-avatar>
+       </ion-buttons>
+      <ion-title class="ion-text-left">My Profile</ion-title>
+  
+      <!-- <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="notifications"></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+    </ion-toolbar>
+  </ion-header>
+  <ion-row>
+    <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-text color="light">Personal Details</ion-text>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label><b>Name :</b></ion-label>
+              <p slot="end">{{first_name}} {{last_name}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label ><b>Email :</b></ion-label>
+              <p >{{email}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Birthday:</b></ion-label>
+              <p >{{formattedDate}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label ><b>Gender :</b></ion-label>
+              <p slot="end">{{gender}}</p>
+            </ion-item>
+            
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+      <ion-card>
+        <ion-card-header>
+           <ion-text color="light">Company Details</ion-text>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label><b>Employee Id:</b></ion-label>
+              <p slot="end">{{employee_id}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Department :</b></ion-label>
+              <p >{{department}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Position :</b></ion-label>
+              <p slot="end">{{position}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Hire Date :</b></ion-label>
+              <p slot="end">{{hire_date}}</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Role :</b></ion-label>
+              <!-- <p slot="end">{{role}}</p> -->
+              <ng-container *ngIf="role === '1'">Super Admin</ng-container>
+              <ng-container *ngIf="role === '2'">Admin</ng-container>
+              <ng-container *ngIf="role === '3'">Manager</ng-container>
+              <ng-container *ngIf="role === '4'">Developer</ng-container>
+              <ng-container *ngIf="role === '5'">Employee</ng-container>
+
+            </ion-item>
+            
+          </ion-list>    </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-text color="light">Notice Board</ion-text>
+        </ion-card-header>
+        <ion-card-content>
+        <!-- <p style="text-align:center;padding-top:10%;padding-bottom:10%;">Notice</p> -->
+        <ion-list>
+          <ion-item>
+            <ion-icon name="megaphone" slot="start"></ion-icon>
+            <ion-label>Meeting rescheduled to next Monday</ion-label>
+          </ion-item>
+        <ion-item>
+          <ion-icon name="megaphone" slot="start"></ion-icon>
+          <ion-label>New feature updates in the app</ion-label>
+        </ion-item>
+      </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-text color="light">Upcoming Holidays</ion-text>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- <p style="text-align:center;padding-top:10%;padding-bottom:10%;">No Holidays</p> -->
+          <ion-list>
+            <ion-item>
+              <ion-icon name="calendar" slot="start"></ion-icon>
+              <ion-label>New Year\'s Day</ion-label>
+              <ion-note slot="end">January 1, 2024</ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="calendar" slot="start"></ion-icon>
+              <ion-label>Independence Day</ion-label>
+              <ion-note slot="end">August 15, 2024</ion-note>
+            </ion-item>
+          </ion-list>
+        
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-grid>
+    <ion-row>
+<ion-col>
+  <ion-card>
+    <ion-card-header>
+      <ion-text color="light">Personal Details</ion-text>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Name :</b></ion-label>
+          <p slot="end">{{first_name}} {{last_name}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label ><b>Email :</b></ion-label>
+          <p >{{email}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Dep :</b></ion-label>
+          <p >{{department}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label ><b>Role :</b></ion-label>
+          <p slot="end">{{role}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Position :</b></ion-label>
+          <p slot="end">{{position}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Hire Date :</b></ion-label>
+          <p slot="end">{{hire_date}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-col>
+<ion-col>
+  <ion-card>
+    <ion-card-header>
+       <ion-text color="light">Company Details</ion-text>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Employee Id:</b></ion-label>
+          <p slot="end">{{employee_id}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Department :</b></ion-label>
+          <p >{{department}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label ><b>Designation :</b></ion-label>
+          <p slot="end">{{position}}</p>
+        </ion-item>
+       
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-col>
+      <ion-col size="6"size-md="12"size-lg="4"size-sm="12"size-xs="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-text color="light">Personal Details</ion-text>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label><b>Name :</b></ion-label>
+                <p slot="end">{{first_name}} {{last_name}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label ><b>Email :</b></ion-label>
+                <p >{{email}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label><b>Dep :</b></ion-label>
+                <p >{{department}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label ><b>Role :</b></ion-label>
+                <p slot="end">{{role}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label><b>Position :</b></ion-label>
+                <p slot="end">{{position}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label><b>Hire Date :</b></ion-label>
+                <p slot="end">{{hire_date}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+             <ion-text color="light">Company Details</ion-text>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label><b>Employee Id:</b></ion-label>
+                <p slot="end">{{employee_id}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label><b>Department :</b></ion-label>
+                <p >{{department}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label ><b>Designation :</b></ion-label>
+                <p slot="end">{{position}}</p>
+              </ion-item>
+             
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6"size-md="12"size-lg="4"size-sm="12"size-xs="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-text color="light">Notice Board</ion-text>
+          </ion-card-header>
+          <ion-card-content>
+          <p style="text-align:center;padding-top:10%;padding-bottom:10%;">Notice</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-text color="light">Upcoming Holidays</ion-text>
+          </ion-card-header>
+          <ion-card-content>
+            <p style="text-align:center;padding-top:10%;padding-bottom:10%;">No Holidays</p>
+          </ion-card-content>
+        </ion-card>
+       
+      </ion-col>
+   
+    </ion-row>
+  </ion-grid> -->
+  
+  </ion-content>

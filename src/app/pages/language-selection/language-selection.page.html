@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true">
+<div id="container">
+  <div style="margin: auto;margin-top: 50px;max-width: 300px;">
+  <ion-list>
+    <ion-radio-group (ionChange)="onLanguageChange($event)">
+      <ion-item *ngFor="let lang of appLanguageList, let i=index">
+      <ion-label class="label-css-font"style="text-transform:text-capitalize">
+      {{lang.text}}
+      </ion-label>
+      <ion-radio mode="ios"value="{{lang.code}}"></ion-radio>
+    </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</div>
+<div style="border:solid 1px lightgray;padding:10px; max-width:400px;margin: 0px auto;">
+<div class="h-label"translate>site.TITLE</div>
+<div class="h-label"translate>site.description</div>
+</div>
+</div>
+</ion-content>

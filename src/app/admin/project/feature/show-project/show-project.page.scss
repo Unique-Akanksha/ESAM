@@ -1,0 +1,210 @@
+// /* Default table styles */
+// .custom-ion-table {
+//     width: 100%;
+//     border-collapse: collapse;
+//   }
+  
+//   .custom-ion-table th,
+//   .custom-ion-table td {
+//     padding: 8px;
+//     border: 1px solid #ccc;
+//     text-align: left;
+//   }
+  
+//   .custom-ion-table th {
+//     background-color: #f2f2f2;
+//     font-weight: bold;
+//   }
+  
+//   /* Responsive styles for screens narrower than 768px */
+//   @media screen and (max-width: 768px) {
+//     .custom-ion-table {
+//       font-size: 14px; /* Reduce font size */
+//     }
+    
+//     .custom-ion-table th,
+//     .custom-ion-table td {
+//       padding: 6px; /* Adjust padding for smaller screens */
+//     }
+//   }
+  
+
+
+.custom-image {
+  // width: 50px;
+  // height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 120px;
+  max-height: 120px;
+}
+
+// ion-header {
+//   ion-toolbar {
+//     --background: #1abc9c;
+//     --color: #fff;
+
+//     ion-title {
+//       font-size: 1.3rem;
+//       font-weight: bold;
+//     }
+
+//     ion-button {
+//       --icon-color: #fff;
+//     }
+//   }
+// }
+/* Default table styles */
+.custom-ion-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-ion-table th,
+.custom-ion-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.custom-ion-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Responsive styles for screens narrower than 768px */
+@media screen and (max-width: 768px) {
+  .custom-ion-table {
+    font-size: 14px; /* Reduce font size */
+  }
+  
+  .custom-ion-table th,
+  .custom-ion-table td {
+    padding: 6px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+// new
+
+.employee-image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  border:1px solid white;
+  padding:3%;
+}
+.card-container {
+  display: flex;
+  flex-wrap: nowrap; /* Ensures the cards won't wrap to the next line */
+  overflow-x: auto; /* Allows scrolling if the cards overflow the container */
+  padding: 10px; /* Adjust padding as needed */
+}
+.custom-outline-button {
+  border: 1px solid var(--ion-color-primary); /* Set the border as a solid line */
+  border-radius: 20px; /* Apply border-radius as desired */
+  color: var(--ion-color-primary); /* Set the text color */
+  font-size: 12px; /* Adjust font-size for smaller button */
+  padding:0.8%;
+}
+ion-card {
+  text-align: center;
+  font-size:13px;
+  padding:20px;
+  flex: 0 0 auto; /* Prevents the cards from growing or shrinking */
+  margin-right: 10px; /* Adjust the space between cards */
+}
+.ion-card:hover{
+  background-color: #1abc9c;
+  ion-card-title{
+  color:white;}
+  ion-card-subtitle{
+    color:white;}
+  .custom-outline-button{
+    border: 1px solid var(--ion-color-light); /* Set the border as a solid line */
+    border-radius: 20px; /* Apply border-radius as desired */
+    color: var(--ion-color-light); /* Set the text color */
+  }
+}
+.column_data:hover{
+  background-color: rgba(117, 168, 255,0.3);
+}
+.table_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #e2e2e2;
+  color:black;
+}
+.table_header p{
+  text-align:left;
+  padding-top:1%;
+}
+.custom-searchbar {
+  --background: #ffffff; /* Background color */
+  --color: #333333; /* Text color */
+  --placeholder-color: #999999; /* Placeholder color */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+.custom-searchbar .searchbar-input {
+  box-shadow: none; /* Remove default box shadow */
+}
+::placeholder{
+  color: #0298cf;
+}
+ion-img{
+  border-radius:50%;
+}
+  /* Responsive styles for screens narrower than 768px */
+  @media screen and (max-width: 768px) {
+    .custom-ion-table {
+      font-size: 14px; /* Reduce font size */
+    }
+    .custom-ion-table th,
+    .custom-ion-table td {
+      padding: 6px; /* Adjust padding for smaller screens */
+    }
+  }
+/* Example CSS */
+.custom-card {
+  background-color:#C8E6C9; /* Replace with your desired background color */
+  backdrop-filter: blur(8px); /* Adjust the blur strength as needed */
+}
+
+
+
+
+
+
+
+
+.label-container {
+  display: flex;
+  justify-content: space-around; /* Adjust as needed */
+  align-items: center;
+  text-align: center; /* Center text content */
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Adjust spacing between labels */
+  /* Add other styles as needed */
+}
+
+.label-text {
+  font-weight: bold;
+  margin-bottom: 5px; /* Adjust space between label and info */
+  /* Add other styles as needed */
+}
+
+.label-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally within the info div */
+  /* Add other styles as needed */
+}

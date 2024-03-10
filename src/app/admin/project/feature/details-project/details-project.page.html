@@ -1,0 +1,75 @@
+
+<ion-content class="ion-padding">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="medium" (click)="closeModal(false)">Cancel</ion-button>
+      </ion-buttons>
+      <ion-title>{{ actionType === 'view' ? 'View Project Details' : 'Update Project' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <form [formGroup]="projectForm" (ngSubmit)="closeModal(true)" enctype="multipart/form-data">
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter Project name" formControlName="name" readonly
+              placeholder="Your Project Name"></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter description" formControlName="description" readonly
+                placeholder="Your description"></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter start date" formControlName="start_date" readonly
+                placeholder="Your start date"></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter end date" formControlName="end_date" placeholder="Your end date" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter project Manager" formControlName="projectManager" placeholder="project Manager"
+               readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="client" formControlName="client" placeholder="client"
+               readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter team Members" formControlName="teamMembers" placeholder="Your team Members" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter status" formControlName="status" placeholder="Your status" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Enter priority" formControlName="priority" placeholder="Your priority" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select delivered" formControlName="delivered" placeholder="Your delivered" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select technologies" formControlName="technologies" placeholder="Your technologies" readonly></ion-input>
+          </ion-col>
+
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+              <ion-input labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select change Requests" formControlName="changeRequests" placeholder="Your change Requests" readonly></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </form>
+  </ion-content>

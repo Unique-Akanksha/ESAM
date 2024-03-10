@@ -1,0 +1,94 @@
+
+#image{
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  display: inline-block;
+  // margin: 0px auto;
+  // padding:5%;
+  margin-left:40%;
+}
+h1,h3{
+  // padding-left:25%;
+}
+#ion-card{
+  padding:5%;
+  background-color:#0f2e86;
+  color:white;
+}
+ion-card-header{
+  background: #0f2e86;
+}
+b,p{
+  // padding-left: 20px;
+}
+@media (max-width:280px){
+ #image{
+  // height:250px;
+ }
+ ion-card{
+  font-size:12px;
+ }
+ #ion-card{
+  font-size:12px;
+ }
+}
+@media (max-width:576px){
+  #image{
+    // height:350px;
+   }
+   ion-label {
+    b{
+      font-size: 0.8rem;
+    }
+   }
+   ion-item{
+    ion-label{
+      font-size: 0.8rem;
+    }
+   }
+}
+ @media (max-width:370px){
+  #image{
+    // height:280px;
+   }
+ }
+
+ @media (min-width: 992px) {
+  /* Styles for desktop screens (width greater than or equal to 992px) */
+  #image {
+    // height: 400px; /* Adjust the height for desktop */
+  }
+  ion-card {
+    font-size: 16px; /* Adjust the font size for desktop */
+  }
+  #ion-card {
+    font-size: 16px; /* Adjust the font size for desktop */
+  }
+}
+
+@media (min-width: 2560px) {
+  /* Styles for 4K screens (width greater than or equal to 2560px) */
+  #image {
+    // height: 500px; /* Adjust the height for 4K screens */
+  }
+  ion-card {
+    font-size: 20px; /* Adjust the font size for 4K screens */
+  }
+  #ion-card {
+    font-size: 20px; /* Adjust the font size for 4K screens */
+  }
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+

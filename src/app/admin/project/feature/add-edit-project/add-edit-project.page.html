@@ -1,0 +1,76 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-back"(click)="closeModal(false)"size="large"></ion-icon>
+      </ion-buttons>
+      <ion-title>{{ actionType === 'update' ? 'Update Project' : 'Add Project' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <form [formGroup]="projectForm" (ngSubmit)="closeModal(true)"class="ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Project Name" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Project name" formControlName="name" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Project Description" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Description" formControlName="description" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input type="date" fill="outline" label="Select Project Start Date" label-placement="floating"formControlName="start_date"[min]="getMinimumStartDate()"></ion-input><br>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input type="date"fill="outline"label="Select Project End Date"label-placement="floating"formControlName="end_date"  [min]="getMinimumEndDate()"></ion-input><br>
+          </ion-col>
+          <ion-col size="6" size-xs="12" size-sm="6" size-md="6" size-lg="6" size-xl="6">
+            <ion-select labelPlacement="stacked" fill="outline" label="Select Project Manager" formControlName="projectManager" placeholder="Select a Manager">
+              <ion-select-option *ngFor="let employee of employees">
+                {{ employee.first_name }} {{ employee.last_name }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+          
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-input label="Enter Client name" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Client name" formControlName="client" (paste)="onPaste($event)"></ion-input><br>
+          </ion-col>      
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select interface="popover" labelPlacement="stacked" fill="outline" label="Team Members" formControlName="teamMembers" multiple="true" placeholder="Select Team Members" cancelText="Cancel" okText="Confirm">
+              <ion-select-option *ngFor="let employee of employees" [value]="employee.id" [attr.selected]="isMemberSelected(employee.id) ? true : null">
+                {{ employee.first_name }} {{ employee.last_name }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+             <ion-select interface="popover"labelPlacement="stacked" labelPlacement="floating" fill="outline"label="Project Status" formControlName="status"placeholder="Project Status">
+                <ion-select-option value="planning">Planning</ion-select-option>
+                <ion-select-option value="InProgress">In Progress</ion-select-option>
+                <ion-select-option value="completed">Completed</ion-select-option>
+          </ion-select>
+          </ion-col>
+          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+            <ion-select interface="popover"labelPlacement="stacked" labelPlacement="floating" fill="outline"label="Project Priority"formControlName="priority"placeholder="Project Priority">
+              <ion-select-option value="low">Low</ion-select-option>
+              <ion-select-option value="medium">Medium</ion-select-option>
+              <ion-select-option value="high">High</ion-select-option>
+            </ion-select>
+         </ion-col>
+         <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <ion-select interface="popover"labelPlacement="stacked" labelPlacement="floating" fill="outline"label="Delivered"formControlName="delivered"placeholder="Delivered">
+            <ion-select-option value="yes" class="yes-option">Yes</ion-select-option>
+            <ion-select-option value="no" class="no-option">No</ion-select-option>
+          </ion-select>
+       </ion-col>
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+           <ion-input label="Technology Used" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Technology Used" formControlName="technologies" (paste)="onPaste($event)"></ion-input><br>
+        </ion-col>
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <ion-input label="Change Requests" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Change Request" formControlName="changeRequests"(paste)="onPaste($event)"></ion-input><br>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-button  shape="round"type="submit"[disabled]="projectForm.invalid" class="login-button">{{ actionType === 'update' ? '+Update Project' : '+Add Project' }}</ion-button>
+        </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>
+

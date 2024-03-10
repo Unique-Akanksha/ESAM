@@ -1,0 +1,74 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/dashboard"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-left">My Leaves</ion-title>
+  
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="notifications"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+ <ion-card>
+  <ion-card-content>
+    <div class="example-header">
+      <ion-searchbar [debounce]="1000" (ionInput)="applyFilter($event)"style="--border-radius:20px;"></ion-searchbar>
+  
+    </div>
+    <div class="for_scroll">
+      <table mat-table [dataSource]="dataSource" class="my-table mat-elevation-z8" matSort>
+        <!-- <ng-container matColumnDef="leaveRequestID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header > LeaveRequestID </th>
+          <td mat-cell *matCellDef="let element"> {{element.leaveRequestID}} </td>
+        </ng-container> -->
+        
+        <!-- <ng-container matColumnDef="employee_id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header > employeeId </th>
+          <td mat-cell *matCellDef="let element"> {{element.employee_id}} </td>
+        </ng-container> -->
+        <ng-container matColumnDef="leave_type">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>Type</b></th>
+          <td mat-cell *matCellDef="let element"> {{element.leave_type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="start_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>Start&nbsp;Date</b></th>
+          <td mat-cell *matCellDef="let element"> {{element.start_date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="end_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>End&nbsp;Date</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.end_date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="reason">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>Reason</b></th>
+          <td mat-cell *matCellDef="let element"> {{element.reason}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>Status</b> </th>
+          <td mat-cell *matCellDef="let element">{{element.status}}</td>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>Created&nbsp;At</b></th>
+          <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+        </ng-container>
+        <ng-container matColumnDef="leave_category">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header ><b>Category</b></th>
+          <td mat-cell *matCellDef="let element"> {{element.leave_category}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching {{filterdata}}</td>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </ion-card-content>
+</ion-card>
+</ion-content>

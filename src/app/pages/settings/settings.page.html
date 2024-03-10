@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">Settings</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="full">
+    <!-- Account -->
+    <ion-item>
+      <ion-icon name="person-circle" slot="start"class="icon"></ion-icon>
+      <ion-label>Account</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+    <!-- Notification -->
+    <ion-item rounterLine="/notification-settint">
+      <ion-icon name="notifications" slot="start"class="icon"></ion-icon>
+      <ion-label>Notification</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+    <!-- Privacy and Security -->
+    <ion-item>
+      <ion-icon name="lock-closed" slot="start"class="icon"></ion-icon>
+      <ion-label>Privacy and Security</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+    <!-- Language -->
+    <ion-item>
+      <ion-icon name="language" slot="start"class="icon"></ion-icon>
+      <ion-label>Language</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+    <!-- Theme -->
+    <ion-item>
+      <ion-icon name="color-palette" slot="start"class="icon"></ion-icon>
+      <ion-label>Theme</ion-label>
+      <ion-toggle (ionChange)="toggleDarkMode()"></ion-toggle>
+    </ion-item>
+
+    <!-- App Preferences -->
+    <ion-item>
+      <ion-icon name="settings" slot="start"class="icon"></ion-icon>
+      <ion-label>App Preferences</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+    <!-- Storage and Data -->
+    <ion-item>
+      <ion-icon name="cloud" slot="start"class="icon"></ion-icon>
+      <ion-label>Storage and Data</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+    <!-- Contact Support -->
+    <ion-item line="none">
+      <ion-icon name="help-circle" slot="start"class="icon"></ion-icon>
+      <ion-label>Contact Support</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

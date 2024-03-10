@@ -1,0 +1,19 @@
+
+ion-button {
+  text-transform: none; /* Yeh existing uppercase ko normal case mein change karega */
+}
+  .login-button {
+    --border-radius: 50px;
+    --background:#f4d465;
+    --color: #010101;
+    width:100%;
+    margin-bottom: 3%;
+  }
+  #box{
+    margin:2%;
+    padding:0;
+    height:100%;
+  }
+.image{
+  --border-radius:20px;
+}
