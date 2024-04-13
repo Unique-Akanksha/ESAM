@@ -29,7 +29,7 @@ export class ShowProjectPage implements OnInit {
     'end_date',
     'projectManager',
     'client',
-    'teamMembers',
+    // 'teamMembers',
     'status',
     'priority',
     'delivered',

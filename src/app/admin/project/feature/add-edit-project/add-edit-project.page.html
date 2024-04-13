@@ -33,13 +33,13 @@
           <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
             <ion-input label="Enter Client name" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Client name" formControlName="client" (paste)="onPaste($event)"></ion-input><br>
           </ion-col>      
-          <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <!-- <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
             <ion-select interface="popover" labelPlacement="stacked" fill="outline" label="Team Members" formControlName="teamMembers" multiple="true" placeholder="Select Team Members" cancelText="Cancel" okText="Confirm">
               <ion-select-option *ngFor="let employee of employees" [value]="employee.id" [attr.selected]="isMemberSelected(employee.id) ? true : null">
                 {{ employee.first_name }} {{ employee.last_name }}
               </ion-select-option>
             </ion-select>
-          </ion-col>
+          </ion-col> -->
           <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
              <ion-select interface="popover"labelPlacement="stacked" labelPlacement="floating" fill="outline"label="Project Status" formControlName="status"placeholder="Project Status">
                 <ion-select-option value="planning">Planning</ion-select-option>

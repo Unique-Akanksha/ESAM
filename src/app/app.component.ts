@@ -47,10 +47,18 @@ export class AppComponent {
     this.app = initializeApp(environment.firebaseConfig);
     this.analytics = getAnalytics(this.app);
   }
-  
   logout() {
-    localStorage.removeItem('user');
-    this.router.navigate(['/login']);
+    if (confirm("Are you sure??")) {
+      localStorage.removeItem('user');
+      this.router.navigate(['/login']);
+      // Reset user details
+      this.userRole = '';
+      this.first_name = '';
+      this.last_name = '';
+      this.department = '';
+      this.userPhoto = '';
+      this.isLoggedIn = false;
+    }
   }
 
   ngOnInit() {
@@ -68,8 +76,16 @@ export class AppComponent {
         this.department = user.department;
         this.userPhoto = user.userPhoto;
       }
+    } else {
+      // Reset user details if not logged in
+      this.userRole = '';
+      this.first_name = '';
+      this.last_name = '';
+      this.department = '';
+      this.userPhoto = '';
     }
   }
+  
   
 
   checkAppMode(){

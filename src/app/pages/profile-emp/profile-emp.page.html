@@ -45,18 +45,6 @@
               <ion-label ><b>Gender :</b></ion-label>
               <p slot="end">{{gender}}</p>
             </ion-item>
-            
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
-      <ion-card>
-        <ion-card-header>
-           <ion-text color="light">Company Details</ion-text>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-list>
             <ion-item>
               <ion-label><b>Employee Id:</b></ion-label>
               <p slot="end">{{employee_id}}</p>
@@ -70,7 +58,7 @@
               <p slot="end">{{position}}</p>
             </ion-item>
             <ion-item>
-              <ion-label><b>Hire Date :</b></ion-label>
+              <ion-label><b>Joining Date :</b></ion-label>
               <p slot="end">{{hire_date}}</p>
             </ion-item>
             <ion-item>
@@ -83,7 +71,34 @@
               <ng-container *ngIf="role === '5'">Employee</ng-container>
 
             </ion-item>
-            
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+      <ion-card>
+        <ion-card-header>
+           <ion-text color="light">Company Details</ion-text>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label><b>CEO</b></ion-label>
+              <p slot="end">XYZ</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Co-Founder :</b></ion-label>
+              <p >XYZ</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Establish:</b></ion-label>
+              <p slot="end">2024</p>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Team Size :</b></ion-label>
+              <p slot="end">4</p>
+            </ion-item>
+  
           </ion-list>    </ion-card-content>
       </ion-card>
     </ion-col>
@@ -92,7 +107,7 @@
     <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
       <ion-card>
         <ion-card-header>
-          <ion-text color="light">Notice Board</ion-text>
+          <ion-text color="light">Meeting Details</ion-text>
         </ion-card-header>
         <ion-card-content>
         <!-- <p style="text-align:center;padding-top:10%;padding-bottom:10%;">Notice</p> -->

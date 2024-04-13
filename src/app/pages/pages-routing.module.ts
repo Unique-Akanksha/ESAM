@@ -15,10 +15,13 @@ const routes: Routes = [
   {
     path: 'language-selection',
     loadChildren: () => import('./language-selection/language-selection.module').then( m => m.LanguageSelectionPageModule)
-  },  {
+  },
+  {
     path: 'multiple-team',
     loadChildren: () => import('./multiple-team/multiple-team.module').then( m => m.MultipleTeamPageModule)
   },
+
+
 
  
 

@@ -27,7 +27,7 @@ export class AddEditProjectPage implements OnInit {
       end_date: ['', [Validators.required]],
       projectManager: ['', [Validators.required]],
       client: ['', [Validators.required]],
-      teamMembers: [[], [Validators.required]],
+      // teamMembers: [[], [Validators.required]],
       status: ['', [Validators.required]],
       priority: ['', [Validators.required]],
       delivered: ['', [Validators.required]],
@@ -44,7 +44,7 @@ export class AddEditProjectPage implements OnInit {
         end_date: this.dataToUpdate.end_date,
         projectManager: this.dataToUpdate.projectManager,
         client: this.dataToUpdate.client,
-        teamMembers: this.dataToUpdate.teamMembers,
+        // teamMembers: this.dataToUpdate.teamMembers,
         status: this.dataToUpdate.status,
         priority: this.dataToUpdate.priority,
         delivered: this.dataToUpdate.delivered,
@@ -113,10 +113,10 @@ export class AddEditProjectPage implements OnInit {
   //   const selectedTeamMembers = this.projectForm.get('teamMembers')?.value;
   //   return Array.isArray(selectedTeamMembers) && selectedTeamMembers.includes(employeeId);
   // }
-  isMemberSelected(employeeId: number): boolean {
-    const selectedTeamMembers = this.projectForm.get('teamMembers')?.value;
-    return selectedTeamMembers?.indexOf(employeeId) !== -1;
-  }
+  // isMemberSelected(employeeId: number): boolean {
+  //   const selectedTeamMembers = this.projectForm.get('teamMembers')?.value;
+  //   return selectedTeamMembers?.indexOf(employeeId) !== -1;
+  // }
   
 
   async presentToast(message: string, color: string) {

@@ -11,4 +11,5 @@ export const environment = {
   },
   apiURLserver:'https://demo101.websartech.com/AMS_APIS/backend/',
   // apiURLserver:'http://localhost/ionic/Backend_Attendance_Management_System/backend/backend/',
+  // apiURLserver:'http://localhost/backend/';
 };

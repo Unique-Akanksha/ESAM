@@ -52,28 +52,8 @@
           *ngFor="let employee of employees$ | async | filter:searchKey:'name,stream,contact,email'">
           <div class="card text-center" style="max-width: 540px;">
             <div class="row g-0">
-              <div class="col-md-4">
-                <div class="d-flex flex-column justify-content-center position-relative w-100 h-100">
-                  <!-- <ion-img class="custom-image" [src]="tempImageUrl" *ngIf="tempImageUrl"style="height:100px;"></ion-img> -->
-             
-                  <!-- <img class="custom-image"
-                    [src]="'https://demo101.websartech.com/AMS_APIS/backend/' + employee.userPhoto"
-                    *ngIf="employee.userPhoto" alt="EmployeeImage"
-                    class="rounded-circle w-100 position-relative border border-5 border-white shadow text-white"
-                    style="z-index: 1;" onerror="this.src='assets/images/default-student-image.png';"> -->
-              
-                    <img class="custom-image"
-                    [src]="'http://localhost/ionic/Backend_Attendance_Management_System/backend/backend/' + employee.userPhoto"
-                    *ngIf="employee.userPhoto" alt="EmployeeImage"
-                    class="rounded-circle w-100 position-relative border border-5 border-white shadow text-white"
-                    style="z-index: 1;" onerror="this.src='assets/images/default-student-image.png';"> 
-                 
-                 
-                  <div class="position-absolute top-0 start-0 w-100" style="background-color: #3f51b5; height: 85%;">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-8">
+        
+              <div class="col-md-12">
                 <div class="card-body">
                   <h5 class="card-title text-capitalize fs-2">{{employee.first_name}} {{employee.last_name}}</h5>
                   <p class="card-text"><small class="text-muted">{{employee.department}}</small></p>

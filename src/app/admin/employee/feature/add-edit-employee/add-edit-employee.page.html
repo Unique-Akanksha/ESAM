@@ -9,14 +9,7 @@
   </ion-header>
     <form [formGroup]="empForm" (ngSubmit)="closeModal(true)" enctype="multipart/form-data"class="ion-padding">
       <ion-item>
-        <input type="file" fill="outline"accept="image/*" (change)="onImageSelected($event)" style="display: none" id="imageInput">
-        <!-- <input type="file" fill="outline"accept="image/*" (change)="onImageSelected($event)"  id="imageInput"> -->
-        <ion-button expand="full" fill="clear" (click)="openImageInput()" color="primary">
-          Choose Team Image
-        </ion-button>
-            <ion-img class="custom-image" [src]="tempImageUrl" *ngIf="tempImageUrl" style="height: 100px;"></ion-img>
-        <!--<ion-img class="custom-image" [src]="tempImageUrl" *ngIf="tempImageUrl"style="height:100px;"></ion-img> -->
-      </ion-item>
+   
       
       <ion-grid>
         <ion-row>
@@ -98,6 +91,7 @@
           <ion-button  shape="round"type="submit"[disabled]="empForm.invalid" class="login-button">{{ actionType === 'update' ? '+Update Employee' : '+Add Employee' }}</ion-button>
         </ion-row>
       </ion-grid>
+      </ion-item>
     </form>
   </ion-content>
 

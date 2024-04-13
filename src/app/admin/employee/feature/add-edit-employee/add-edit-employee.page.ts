@@ -19,8 +19,8 @@ export class AddEditEmployeePage implements OnInit {
   userRoleList: any[] = [];
   employees: any[] = [];
   departments: any[] = [];
-  imageUrl: string | undefined = ''; 
-  tempImageUrl: string | undefined = ''; 
+  // imageUrl: string | undefined = ''; 
+  // tempImageUrl: string | undefined = ''; 
   private file: File | undefined;
   employeeData: any = { userPhoto: '' };
 
@@ -60,7 +60,7 @@ export class AddEditEmployeePage implements OnInit {
       position: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(3)]],
       confirmPassword: ['', [Validators.required]],
-      userPhoto: [''],
+      // userPhoto: [''],
       // userPhoto:['',[Validators.required]],
     }, {
       validator: this.passwordMatchValidator
@@ -80,11 +80,11 @@ export class AddEditEmployeePage implements OnInit {
         password: this.dataToUpdate.password,
         confirmPassword: this.dataToUpdate.password,
         role: this.dataToUpdate.role,
-        userPhoto: this.dataToUpdate.userPhoto, 
+        // userPhoto: this.dataToUpdate.userPhoto, 
         
       });
-      this.tempImageUrl = this.dataToUpdate.userPhoto;
-      console.log(this.tempImageUrl);
+      // this.tempImageUrl = this.dataToUpdate.userPhoto;
+      // console.log(this.tempImageUrl);
     } else {
       this.empForm.patchValue({
         first_name: '',
@@ -119,7 +119,7 @@ export class AddEditEmployeePage implements OnInit {
         this.employeeData = { ...this.employeeData, ...this.empForm.value };
         try {
           if (this.file) {
-            this.employeeData.userPhoto = await this.uploadImage(this.file);
+            // this.employeeData.userPhoto = await this.uploadImage(this.file);
           }
           console.log('Employee Data', this.employeeData);
   
@@ -153,20 +153,20 @@ export class AddEditEmployeePage implements OnInit {
   //     throw error; // Throw the error to handle it elsewhere if needed
   //   }
   // }
-  async uploadImage(file: File) {
-    try {
-      const imageUrl = await this.employeeService.uploadImage(file).toPromise();
-      if (imageUrl) {
-        this.tempImageUrl = imageUrl.replace(/\/\//g, '/');
-        // Update the URL with your actual path here
-        this.tempImageUrl = 'http://localhost/ionic/Backend_Attendance_Management_System/backend/backend/uploads/6564628f51c90_man%20(2).png';
-      }
-      return imageUrl; // Return the image URL
-    } catch (error) {
-      console.error('Image upload error:', error);
-      throw error; // Throw the error to handle it elsewhere if needed
-    }
-  }
+  // async uploadImage(file: File) {
+  //   try {
+  //     const imageUrl = await this.employeeService.uploadImage(file).toPromise();
+  //     if (imageUrl) {
+  //       this.tempImageUrl = imageUrl.replace(/\/\//g, '/');
+  //       // Update the URL with your actual path here
+  //       this.tempImageUrl = 'http://localhost/ionic/Backend_Attendance_Management_System/backend/backend/uploads/6564628f51c90_man%20(2).png';
+  //     }
+  //     return imageUrl; // Return the image URL
+  //   } catch (error) {
+  //     console.error('Image upload error:', error);
+  //     throw error; // Throw the error to handle it elsewhere if needed
+  //   }
+  // }
   
   
   
@@ -186,7 +186,7 @@ export class AddEditEmployeePage implements OnInit {
       position: dataToEdit.position,
       password: dataToEdit.password,
       confirmPassword: dataToEdit.password,
-      userPhoto: dataToEdit.userPhoto || this.dataToUpdate.userPhoto,
+      // userPhoto: dataToEdit.userPhoto || this.dataToUpdate.userPhoto,
       role: dataToEdit.role,
       id: this.dataToUpdate.employee_id
     };
@@ -234,7 +234,7 @@ export class AddEditEmployeePage implements OnInit {
       console.log('',formData.position);
       console.log('',formData.password);
       console.log('',formData.confirmPassword);
-      console.log('',formData.userPhoto);
+      // console.log('',formData.userPhoto);
       console.log('',formData.role);
 
     this.employeeService.addEmployee(
@@ -317,23 +317,23 @@ onPaste(event: ClipboardEvent): void {
 // Existing code...
 
 
-onImageSelected(event: Event): void {
-  const inputElement = event.target as HTMLInputElement;
-  if (inputElement.files && inputElement.files.length > 0) {
-    const file = inputElement.files[0];
-    this.uploadImage(file);
-  }
-}
+// onImageSelected(event: Event): void {
+//   const inputElement = event.target as HTMLInputElement;
+//   if (inputElement.files && inputElement.files.length > 0) {
+//     const file = inputElement.files[0];
+//     this.uploadImage(file);
+//   }
+// }
 
 
 // Existing code...
 
-openImageInput() {
-  const inputElement = document.getElementById('imageInput') as HTMLInputElement;
-  if (inputElement) {
-    inputElement.click();
-  }
-}
+// openImageInput() {
+//   const inputElement = document.getElementById('imageInput') as HTMLInputElement;
+//   if (inputElement) {
+//     inputElement.click();
+//   }
+// }
 getMinimumStartDate(): string {
   const today = new Date();
   return today.toISOString().split('T')[0];

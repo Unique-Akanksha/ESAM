@@ -1,25 +1,81 @@
 <ion-header>
-    <ion-toolbar>
-      <!-- <ion-buttons slot="start">
-        <ion-button color="medium" (click)="closeModal(false)">Cancel</ion-button>
-      </ion-buttons> -->
-      <ion-buttons slot="start">
-        <ion-icon name="arrow-back"(click)="closeModal(false)"size="large"></ion-icon>
-      </ion-buttons>
-      <ion-title>{{ actionType === 'update' ? 'Update Department' : 'Add Department' }}</ion-title>
-      <!-- <ion-buttons slot="end">
-        <ion-button  type="submit" class="login-button">+ Add Department</ion-button>
-      </ion-buttons> -->
-      <!-- <ion-buttons slot="end">
-        <ion-button (click)="closeModal(true)" [strong]="true" [disabled]="depForm.invalid">Confirm</ion-button>
-      </ion-buttons> -->
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="ion-padding">
-  <div class="container outer">
-    <div class="box"></div>
-  </div>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-button color="medium" (click)="closeModal(false)">Cancel</ion-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back"(click)="closeModal(false)"size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ actionType === 'update' ? 'Update Department' : 'Add Department' }}</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button  type="submit" class="login-button">+ Add Department</ion-button>
+    </ion-buttons> -->
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="closeModal(true)" [strong]="true" [disabled]="depForm.invalid">Confirm</ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
 
-  </ion-content>
-  
+<ion-content class="ion-padding">
+  <form [formGroup]="depForm" (ngSubmit)="closeModal(true)">
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <!-- <ion-item>
+            <ion-input labelPlacement="stacked" label="Enter your name" formControlName="name" appAlphabetOnly  placeholder="Your name" (paste)="onPaste($event)"></ion-input>
+          </ion-item>
+          <div *ngIf="depForm.controls['name'].touched && depForm.controls['name'].invalid">
+            <ion-text color="danger">Name is required.</ion-text>
+          </div>       -->
+          <ion-input  label="Enter Department name" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Enter Department name"formControlName="name"></ion-input><br>
+        
+        </ion-col>
+
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <!-- <ion-item>
+            <ion-input labelPlacement="stacked" label="Enter Department Description" appAlphabetOnly formControlName="description" appNumericOnly  placeholder="Description" (paste)="onPaste($event)"></ion-input>
+          </ion-item>
+          <div *ngIf="depForm.controls['description'].touched && depForm.controls['description'].invalid">
+            <ion-text color="danger">Description is required.</ion-text>
+          </div> -->
+          <ion-textarea label="Enter Department Description" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Enter Leave Reason"formControlName="description" (paste)="onPaste($event)"></ion-textarea><br>
+        
+        </ion-col>
+
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <!-- <ion-input  label="Enter Manager name" labelPlacement="floating" fill="outline" appAlphabetOnly placeholder="Enter Manager name"formControlName="manager"></ion-input><br> -->
+          <ion-select labelPlacement="stacked" labelPlacement="floating" fill="outline" label="Select Manager" formControlName="manager"
+          placeholder="Select a Manager">
+          <ion-select-option *ngFor="let employee of employeeList">
+            {{ employee.first_name }}
+            {{ employee.last_name }}
+          </ion-select-option>
+        </ion-select>
+        </ion-col>
+
+        <ion-col size="6"size-xs="12"size-sm="6"size-md="6"size-lg="6"size-xl="6">
+          <ion-input  label="Enter Team Size" labelPlacement="floating" fill="outline" appNumberOnly placeholder="Enter Team Size"formControlName="teamSize"></ion-input><br>
+        
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button  type="submit" class="login-button">{{ actionType === 'update' ? '+Update Department' : '+Add Department' }}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    
+  </form>
+
+  <!-- <div id="box">
+    <div id="form">
+      <form [formGroup]="depForm" (ngSubmit)="closeModal(true)">
+        
+      </form>
+    </div>
+  </div>
+   -->
+</ion-content>
