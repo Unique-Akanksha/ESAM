@@ -158,6 +158,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'holiday-calendar',
+    loadChildren: () => import('./pages/holiday-calendar/holiday-calendar.module').then( m => m.HolidayCalendarPageModule)
+  },
+  {
     path: 'details-project',
     loadChildren: () => import('./admin/project/feature/details-project/details-project.module').then( m => m.DetailsProjectPageModule),
     canActivate: [AuthGuard]

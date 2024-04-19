@@ -59,22 +59,44 @@ export class AddEditDepartmentPage implements OnInit {
     if (confirm) {
       if (this.depForm.valid) {
         const departmentData = this.depForm.value;
-
+  
         if (this.actionType === 'update') {
-          this.updateDepartment(departmentData);
+          this.updateDepartment(departmentData,
+            async (message: any) => {
+              console.log('Success:', message);
+              const toast = await this.toastController.create({
+                message: 'Department updated successfully',
+                duration: 3000,
+                position: 'bottom',
+                color: 'success',
+              });
+              toast.present();
+              this.modalCtrl.dismiss();
+            },
+            async (error: any) => {
+              console.log('Error:', error);
+              const toast = await this.toastController.create({
+                message: 'Error updating department',
+                duration: 3000,
+                position: 'bottom',
+                color: 'danger',
+              });
+              toast.present();
+            }
+          );
         } else {
           this.addDepartment(departmentData);
         }
       }
     }
-
+  
     this.modalCtrl.dismiss({ role: confirm ? 'confirm' : 'cancel', data: { ...{id:this.dataToUpdate.department_id}, ...this.depForm.value} });
-
   }
-
-  async updateDepartment(dataToEdit: any) {
+  
+  
+  async updateDepartment(dataToEdit: any, successCallback: (message: any) => Promise<void>, errorCallback: (error: any) => Promise<void>) {
     console.log("update function: ", dataToEdit);
-
+  
     const updatedData = {
       name: dataToEdit.name,
       description: dataToEdit.description,
@@ -82,33 +104,18 @@ export class AddEditDepartmentPage implements OnInit {
       teamSize: dataToEdit.teamSize,
       id: this.dataToUpdate.department_id 
     };
-
-
+  
+    const toast = await this.toastController.create({
+      message: 'Department updated successfully',
+      duration: 3000,
+      position: 'bottom',
+      color: 'success',
+    });
+    toast.present();
+  
     this.departmentService.updateDepartment(updatedData,
-      async (message) => {
-        if (message === "Department already exists") {
-          const toast = await this.toastController.create({
-            message: 'Department already exists',
-            duration: 3000,
-            position: 'bottom',
-            color: 'danger',
-          });
-          toast.present();
-        } else {
-          const toast = await this.toastController.create({
-            message: 'Department updated successfully',
-            duration: 3000,
-            position: 'bottom',
-            color: 'success',
-          });
-          toast.present();
-          this.modalCtrl.dismiss();
-        }
-
-      },
-      (error) => {
-        console.log('Error: ' + error);
-      }
+      successCallback,
+      errorCallback
     );
   }
   

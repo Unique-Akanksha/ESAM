@@ -10,21 +10,23 @@
   background-repeat: no-repeat;
 }
 .outer{
-  // background: #d8fefc;
-  // background-image: linear-gradient(to top, #fff1eb 30%, #ace0f9 100%);
-  background-image: linear-gradient(to top, rgba(247,149,103,0.4) 30%, #ace0f9 100%);
+  // background-image: linear-gradient(to top, rgba(247,149,103,0.4) 30%, #ace0f9 100%);
   background-size: 100% 100%;
+  background-color:#c2e6ff;
   border:1px solid;
   height: 100%;
 }
 .box{
   // background-color:rgba(238,254,253,0.9);
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-  width:77%;
+  // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-color: #c2e6ff;
+  width:90%;
   margin:0px auto;
-  height:80%;
-  margin-top: 5%;
+  height:90%;
+  margin-top: 2%;
   border-radius: 20px;
+  margin-bottom: 2%;
+  // box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .left {

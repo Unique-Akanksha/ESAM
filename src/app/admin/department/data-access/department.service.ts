@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators'; 
 import { environment } from 'src/environments/environment';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,27 @@ export class DepartmentService {
 
   constructor(private http:HttpClient) { }
 
-  getDepList(){
-    return this.http.get<any[]>(this.DepartmentAPIUrl);
+  // getDepList(){
+  //   return this.http.get<any[]>(this.DepartmentAPIUrl);
+  // }
+  getDepList(): Observable<any[]> {
+    return this.http.get<any[]>(this.DepartmentAPIUrl).pipe(
+      catchError(this.handleError)
+    );
+  }
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // Client-side or network error occurred
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // Backend returned an unsuccessful response code
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`
+      );
+    }
+    // Return an observable with a user-facing error message
+    return throwError('Something went wrong. Please try again later.');
   }
 
   getDepListByID(val:any){
@@ -65,12 +85,16 @@ export class DepartmentService {
         } else {
           errorCallback('No message received');
         }
+      },
+      (error) => {
+        errorCallback(error);
       }
     );
   }
 
   updateDepartment(data: any, successCallback: (message: string) => void, errorCallback: (error: any) => void): void {
-    this.http.put(this.DepartmentAPIUrl, data, { observe: 'response' }).subscribe(
+    this.http.put(this.DepartmentAPIUrl, data, { observe: 'response', responseType: 'json' }).subscribe(
+
       (response) => {
         const responseBody = response.body as { message: string };
         if (responseBody) {
@@ -79,7 +103,11 @@ export class DepartmentService {
         } else {
           errorCallback('No message received');
         }
+      },
+      (error) => {
+        errorCallback(error);
       }
     );
   }
+  
 }

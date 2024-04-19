@@ -1,0 +1,8 @@
+{
+    "/API/*": {
+      "target": "https://employeemanagementapp.000webhostapp.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

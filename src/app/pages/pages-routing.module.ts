@@ -19,7 +19,11 @@ const routes: Routes = [
   {
     path: 'multiple-team',
     loadChildren: () => import('./multiple-team/multiple-team.module').then( m => m.MultipleTeamPageModule)
+  },  {
+    path: 'holiday-calendar',
+    loadChildren: () => import('./holiday-calendar/holiday-calendar.module').then( m => m.HolidayCalendarPageModule)
   },
+
 
 
 

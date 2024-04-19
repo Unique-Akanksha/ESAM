@@ -9,7 +9,8 @@ export const environment = {
     appId: "1:237343548956:web:9967db542c630a5b10a1d9",
     measurementId: "G-QQ34YX0DXJ"
   },
-  apiURLserver:'https://demo101.websartech.com/AMS_APIS/backend/',
-  // apiURLserver:'http://localhost/ionic/Backend_Attendance_Management_System/backend/backend/',
-  // apiURLserver:'http://localhost/backend/';
+  // apiURLserver:'https://demo101.websartech.com/AMS_APIS/backend/',
+  // apiURLserver:'http://http://localhost/backend/',
+  // apiURLserver:'http://localhost/backend/',
+  apiURLserver:'https://employeemanagementapp.000webhostapp.com/API/',
 };

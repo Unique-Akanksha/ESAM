@@ -203,7 +203,7 @@ export class FillAttendancePage implements OnInit {
 
         if (message === "Attendance already exists") {
           const toast = await this.toastController.create({
-            message: "Attendance already exists",
+            message: "Attendance overlapping",
             duration: 3000,
             position: "bottom",
             color: "danger",

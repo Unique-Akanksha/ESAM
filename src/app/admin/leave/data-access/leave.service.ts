@@ -10,25 +10,24 @@ import { environment } from 'src/environments/environment';
 export class LeaveService {
 
   apiURL = environment.apiURLserver;
-  readonly LeaveRequestsAPIUrl = this.apiURL+"leaveRequestAPI.php";
+  readonly LeaveRequestsAPIUrl = this.apiURL + "leaveRequestAPI.php";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAllLeaveRequests(){
+  getAllLeaveRequests() {
     return this.http.get<any[]>(this.LeaveRequestsAPIUrl);
   }
- 
-  getAllLeaveRequestsByID(employee_id:any){
+
+  getAllLeaveRequestsByID(employee_id: any) {
     const url = `${this.LeaveRequestsAPIUrl}?employee_id=${employee_id}`;
     return this.http.get<any[]>(url);
   }
-
 
   getAllLeaveRequestsCount(): Observable<number> {
     const endpoint = `${this.LeaveRequestsAPIUrl}`;
 
     return this.http.get<any[]>(endpoint).pipe(
-      map((leaveRequests:any) => {
+      map((leaveRequests: any) => {
         return leaveRequests.length;
       })
     );
@@ -37,7 +36,7 @@ export class LeaveService {
   deleteLeaveRequest(val: any, successCallback: (message: string) => void, errorCallback: (error: any) => void): void {
     const url = this.LeaveRequestsAPIUrl;
     const data = { id: val };
-  
+
     this.http.delete(url, { body: data }).subscribe(
       (response) => {
         const responseBody = response as { message: string };
@@ -55,7 +54,16 @@ export class LeaveService {
   }
 
   createLeaveRequest(val: any, successCallback: (message: string) => void, errorCallback: (error: any) => void): void {
-    this.http.post(this.LeaveRequestsAPIUrl, val, { observe: 'response' }).subscribe(
+    const data = {
+      employee_id: val.employee_id,
+      leave_type: val.leave_type,
+      start_date: val.start_date,
+      end_date: val.end_date,
+      reason: val.reason,
+      leave_category: val.leave_category
+    };
+
+    this.http.post(this.LeaveRequestsAPIUrl, data, { observe: 'response' }).subscribe(
       (response) => {
         const responseBody = response.body as { message: string };
         if (responseBody) {
@@ -64,6 +72,9 @@ export class LeaveService {
         } else {
           errorCallback('No message received');
         }
+      },
+      (error) => {
+        errorCallback(error);
       }
     );
   }
@@ -78,6 +89,9 @@ export class LeaveService {
         } else {
           errorCallback('No message received');
         }
+      },
+      (error) => {
+        errorCallback(error);
       }
     );
   }
